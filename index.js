@@ -5,7 +5,21 @@ for (let i = 0; i < drumButton.length; i++) {
   drumButton[i].addEventListener("click", function () {
     let buttonInnerHTML = this.innerHTML;
 
-    switch (buttonInnerHTML) {
+    playSound(buttonInnerHTML);
+
+  });
+}
+
+document.addEventListener("keydown", function(e) {
+    playSound(event.key);
+});
+
+// Need to figure how to get the keyboard key to came back and 
+// play a sound depending on hte letter if w === w plays the audio
+
+function playSound(key) {
+    
+    switch (key) {
       case "w":
         let crash = new Audio("./sounds/crash.mp3");
         crash.play();
@@ -45,5 +59,7 @@ for (let i = 0; i < drumButton.length; i++) {
         console.log(buttonInnerHTML);
         break;
     }
-  });
+
 }
+
+//Need to review this.. I get whats it trying to do but how to get here took me a minute
