@@ -6,12 +6,14 @@ for (let i = 0; i < drumButton.length; i++) {
     let buttonInnerHTML = this.innerHTML;
 
     playSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 
   });
 }
 
 document.addEventListener("keydown", function(e) {
     playSound(event.key);
+    buttonAnimation(event.key);
 });
 
 // Need to figure how to get the keyboard key to came back and 
@@ -62,4 +64,14 @@ function playSound(key) {
 
 }
 
-//Need to review this.. I get whats it trying to do but how to get here took me a minute
+//Need to review this on top.. I get whats it trying to do but how to get here took me a minute
+
+function buttonAnimation(currentKey) {
+
+  let activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+
+    setTimeout(function(){
+      activeButton.classList.remove("pressed");
+    }, 100);
+}
